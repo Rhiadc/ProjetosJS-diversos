@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>CRUD
+
+                    <small class="text-muted">Crud basico</small>
+                </h3>
+                
+            </div>
+        </div>
+        <!--boostrap divide tela em 12 linhas... cada vez que adicionamos uma row dentro do container fluid, ele desce-->
+        <div class="row">
+            
+            <div class="col-md-12">
+               
+                                
+                <button id="addButton" class="btn btn-primary float-end" data-bs-toggle="modal"  style="margin-left: 10px;"data-bs-target="#modalCadastro">Adicionar Usuário</button>
+                <div class="form-group w-25 " >
+                    <input type="text" class="form-control" id="filterInput" placeholder="Pesquisar usuário" style="margin-right: 10px;">
+                </div>
+            </div>
+            
+        </div>  
+        <div class="row">
+            <div class="col-md-12"> 
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Sobrenome</th>
+                        <th scope="col">Data de nascimento</th>
+                        <th scope="col">Formação</th>
+                        <th scope="col" id="actions">Ações</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody class="tbody">
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <!--modal-->
+    <!-- Modal -->
+    <div>
+        <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalCadastroLabel">Cadastrar usuário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Nome</label>
+                                <input id="txtNome" type="text" class="form-control" placeholder="digite o nome" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Sobrenome</label>
+                            <input id="txtSobrenome" type="text" class="form-control" placeholder="digite o sobrenome" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Nascimento</label>
+                            <input id="txtNascimento" type="date" class="form-control " autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Formação</label>
+                        <input id="txtFormacao" type="text" class="form-control" placeholder="digite a formacao" autocomplete="off">
+                </div>
+            </div>
+                </div>
+                    
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" id="btn-submit">Salvar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>    
+    <!--fim modal-->
+        <!-- Modal -->
+    <div>   
+        <div class="modal fade" id="modelUpdate" tabindex="-1" aria-labelledby="modelUpdateLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modelUpdateLabel">Atualizar usuário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Nome</label>
+                                <input id="txtNomeUpdate" type="text" class="form-control" placeholder="digite o nome" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Sobrenome</label>
+                            <input id="txtSobrenomeUpdate" type="text" class="form-control" placeholder="digite o sobrenome" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Nascimento</label>
+                            <input id="txtNascimentoUpdate" type="date" class="form-control " autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Formação</label>
+                        <input id="txtFormacaoUpdate" type="text" class="form-control" placeholder="digite a formacao" autocomplete="off">
+                        <input type="hidden" id="custId" name="custId">
+                </div>
+            </div>
+                </div>
+                       
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" id="update-btn-submit">Salvar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>    
+        <!--fim modal-->     
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script> 
+    <script src="app.js"></script>
+</body>
+</html> 
